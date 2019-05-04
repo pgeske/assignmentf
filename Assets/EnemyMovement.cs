@@ -6,7 +6,8 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
-    private bool vertical = true;
+    public bool vertical = true;
+    private Vector2 direction;
 
     // Start is called before the first frame update
     void Start()
@@ -14,25 +15,23 @@ public class EnemyMovement : MonoBehaviour
         this.rb = GetComponent<Rigidbody2D>();
         if (vertical)
         {
-            this.rb.velocity = new Vector2(0, speed);
+            direction = new Vector2(0, speed);
         }
         else
         {
-            this.rb.velocity = new Vector2(speed, 0);
+            direction = new Vector2(speed, 0);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        this.rb.velocity = direction;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        this.rb.velocity = new Vector2(
-            -1 * this.rb.velocity.x,
-            -1 * this.rb.velocity.y
-         );
+        Debug.Log("Collided");
+        direction = -1 * direction;
     }
 }

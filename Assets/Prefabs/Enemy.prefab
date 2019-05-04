@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7391492261088947678}
   - component: {fileID: 7391492261088947677}
   - component: {fileID: 7391492261088947617}
-  - component: {fileID: 7391492261088947616}
+  - component: {fileID: 8770770127212875190}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
---- !u!61 &7391492261088947616
+--- !u!61 &8770770127212875190
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
