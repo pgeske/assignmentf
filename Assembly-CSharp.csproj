@@ -60,8 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EnemyMovement.cs" />
-    <Compile Include="Assets\EnemySpawner.cs" />
     <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\CollectableBounce.cs" />
     <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Door.cs" />
@@ -72,8 +70,11 @@
     <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Tile.cs" />
     <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\TimedAnimations.cs" />
     <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Trigger.cs" />
-    <Compile Include="Assets\ProjectileMovement.cs" />
     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
