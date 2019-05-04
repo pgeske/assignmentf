@@ -8,7 +8,6 @@ public class EnemyAttack : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("attacking");
         Instantiate(projectilePrefab, transform.position, Quaternion.identity);
     }
 

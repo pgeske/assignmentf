@@ -2,23 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
-    public bool vertical = true;
     private Vector2 direction;
+    public Side side;
+
+    public enum Side { Left, Right, Top, Bottom };
+
+    public static Side GetRandomSide()
+    {
+        List<Side> sides = new List<Side> { Side.Left, Side.Right, Side.Top, Side.Bottom };
+        return sides[Random.Range(0, 3)];
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
         this.rb = GetComponent<Rigidbody2D>();
-        if (vertical)
+    
+        // set velocity
+        if (side == Side.Left || side == Side.Right)
         {
+            this.rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             direction = new Vector2(0, speed);
         }
         else
         {
+            this.rb.constraints = RigidbodyConstraints2D.FreezePositionY;
             direction = new Vector2(speed, 0);
         }
     }

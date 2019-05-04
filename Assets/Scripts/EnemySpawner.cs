@@ -3,28 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject area; 
+    public GameObject area;
+    private EnemyMovement.Side currentSide;
+
+    private EnemyMovement.Side getNextSide()
+    {   
+        if (currentSide == EnemyMovement.Side.Right)
+        {
+            return EnemyMovement.Side.Bottom;
+        }
+        else if (currentSide == EnemyMovement.Side.Bottom)
+        {
+            return EnemyMovement.Side.Left;
+        }
+        else if (currentSide == EnemyMovement.Side.Left)
+        {
+            return EnemyMovement.Side.Top;
+        }
+
+        return EnemyMovement.Side.Right;
+    }
 
     private void InstantiateEnemy()
     {
-        // pick a side
+        // pick next side to spawn enemy at
+  
         Tilemap tilemap = area.GetComponent<Tilemap>();
-        int side = Random.Range(0, 3);
-        Debug.Log(side);
+        EnemyMovement.Side side = getNextSide();
+        currentSide = side;
         Vector2 spawnPosition;
 
-        if (side == 0)
+        // set enemy to spawn on that side
+        if (side == EnemyMovement.Side.Left)
         {
             spawnPosition = new Vector2(-1 * tilemap.size.x / 2 + 1, 0);
         }
-        else if (side == 1)
+        else if (side == EnemyMovement.Side.Top)
         {
             spawnPosition = new Vector2(0, -1 * tilemap.size.y / 2 + 1);
         }
-        else if (side == 2)
+        else if (side == EnemyMovement.Side.Right)
         {
             spawnPosition = new Vector2(tilemap.size.x / 2 - 1, 0);
         }
@@ -34,9 +56,9 @@ public class EnemySpawner : MonoBehaviour
         }
         
 
-        // spawn enemy on that side
+        // spawn the enemy
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-        enemy.GetComponent<EnemyMovement>().vertical = side % 2 == 0;
+        enemy.GetComponent<EnemyMovement>().side = side;
     }
 
     // Start is called before the first frame update
