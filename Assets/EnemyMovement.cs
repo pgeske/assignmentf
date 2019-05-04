@@ -31,7 +31,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided");
         direction = -1 * direction;
     }
 }

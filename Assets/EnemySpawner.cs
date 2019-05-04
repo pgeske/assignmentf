@@ -49,8 +49,5 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         Tilemap tilemap = area.GetComponent<Tilemap>();
-        Debug.Log(tilemap.size.x);
-        Debug.Log(tilemap.size.y);
-        Debug.Log(tilemap.localBounds);
     }
 }
