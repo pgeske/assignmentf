@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterHealth : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class CharacterHealth : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
+        }
+
+        // increase player speed when player has low health
+        if (health == 1)
+        {
+            GameObject.Find("Player").GetComponent<CharacterMovement>().speed += 5;
         }
     }
 }
