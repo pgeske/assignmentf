@@ -80,8 +80,9 @@
     <Compile Include="Assets\Scripts\PowerupSpawner.cs" />
     <Compile Include="Assets\Scripts\ProjectileCollision.cs" />
     <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
-    <Compile Include="Assets\Scripts\ShieldBehavior.cs" />
     <Compile Include="Assets\Scripts\TitleInputHandler.cs" />
+    <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\WeaponProjectile.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
