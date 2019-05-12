@@ -14,11 +14,11 @@ public class TitleInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("here");
         if (Input.GetKeyDown("return"))
         {
-            Debug.Log("changing scene");
             SceneManager.LoadScene("Play");
+            Timer.secondsPassed = 0;
         }   
     }
 }
+    

@@ -7,6 +7,9 @@ public class CharacterHealth : MonoBehaviour
 {
     public int health;
     public GameObject healthIndicator;
+    public Sprite oneHealth;
+    public Sprite twoHealth;
+    public Sprite threeHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +20,18 @@ public class CharacterHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthIndicator.GetComponent<UnityEngine.UI.Text>().text = "Health: " + health;
-
+        if (health == 3)
+        {
+            healthIndicator.GetComponent<UnityEngine.UI.Image>().sprite = threeHealth;
+        }
+        else if (health == 2)
+        {
+            healthIndicator.GetComponent<UnityEngine.UI.Image>().sprite = twoHealth;
+        }
+        else if (health == 1)
+        {
+            healthIndicator.GetComponent<UnityEngine.UI.Image>().sprite = oneHealth;
+        }
     }
 
     public void Damage(int damage)

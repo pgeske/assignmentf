@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public GameObject area;
+    public float spawnOffset;
     private EnemyMovement.Side currentSide;
 
     private EnemyMovement.Side getNextSide()
@@ -40,32 +41,33 @@ public class EnemySpawner : MonoBehaviour
         // set enemy to spawn on that side
         if (side == EnemyMovement.Side.Left)
         {
-            spawnPosition = new Vector2(-1 * tilemap.size.x / 2 + 1, 0);
+            spawnPosition = new Vector2(-1 * tilemap.size.x / 2 + spawnOffset, 0);
         }
         else if (side == EnemyMovement.Side.Top)
         {
-            spawnPosition = new Vector2(0, -1 * tilemap.size.y / 2 + 1);
+            spawnPosition = new Vector2(0, -1 * tilemap.size.y / 2 + spawnOffset);
         }
         else if (side == EnemyMovement.Side.Right)
         {
-            spawnPosition = new Vector2(tilemap.size.x / 2 - 1, 0);
+            spawnPosition = new Vector2(tilemap.size.x / 2 - spawnOffset, 0);
         }
         else
         {
-            spawnPosition = new Vector2(0, tilemap.size.y / 2 - 1);
+            spawnPosition = new Vector2(0, tilemap.size.y / 2 - spawnOffset);
         }
         
 
         // spawn the enemy
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         enemy.GetComponent<EnemyMovement>().side = side;
+        Invoke("InstantiateEnemy", Random.Range(2, 6));
     }
 
     // Start is called before the first frame update
     void Start()
     {
         area.GetComponent<Tilemap>();
-        InvokeRepeating("InstantiateEnemy", 1.0f, 5.0f);
+        Invoke("InstantiateEnemy", 1.0f);
     }
 
     // Update is called once per frame

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public GameObject weaponProjectilePrefab;
     public float cooldown;
-    private float timeStamp = Time.time;
+    public GameObject cooldownIndicator;
+    public GameObject weaponProjectilePrefab;
+    private float timeStamp;
     private GameObject player;
 
 
@@ -58,5 +59,14 @@ public class Weapon : MonoBehaviour
             }
         }
 
+        // update cooldown text
+        float remainingCooldown = Mathf.Ceil(timeStamp - Time.time);
+        if (remainingCooldown > 0)
+        {
+            cooldownIndicator.GetComponent<UnityEngine.UI.Text>().text = remainingCooldown.ToString();
+        } else
+        {
+            cooldownIndicator.GetComponent<UnityEngine.UI.Text>().text = "";
+        }
     }
 }
