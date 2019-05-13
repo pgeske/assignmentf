@@ -60,16 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\CollectableBounce.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Door.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\FadeScript.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\MenuButtons.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\SpikeTrap.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Tile.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\TimedAnimations.cs" />
-    <Compile Include="Assets\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Trigger.cs" />
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\ConsumeHeart.cs" />
@@ -102,7 +92,6 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\Pixel Font - Tripfive\_README.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
