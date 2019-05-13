@@ -7,8 +7,11 @@ public class Weapon : MonoBehaviour
     public float cooldown;
     public GameObject cooldownIndicator;
     public GameObject weaponProjectilePrefab;
+    public Sprite bowWithArrow;
+    public Sprite bowWithoutArrow;
     private float timeStamp;
     private GameObject player;
+    private SpriteRenderer weaponRenderer;
 
 
     // Start is called before the first frame update
@@ -17,6 +20,7 @@ public class Weapon : MonoBehaviour
         Cursor.visible = true;
         player = transform.parent.gameObject;
         InvokeRepeating("Attack", 1.0f, 5.0f);
+        weaponRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Shoot()
@@ -37,22 +41,45 @@ public class Weapon : MonoBehaviour
         return delta;
     }
 
+    private bool Ready()
+    {
+        return timeStamp <= Time.time;
+    }
+
 
     // Update is called once per frame
     void Update()
     {
+        // toggle the arrow on the bow, depending on if the player shot the arrow
+        if (!Ready())
+        {
+            weaponRenderer.sprite = bowWithoutArrow;
+        }
+        else
+        {
+            weaponRenderer.sprite = bowWithArrow;
+        }
+
         // get vector from player to mouse
-        Vector2 playerToMouse = ToMouse(player);
+        Vector2 playerToMouse = ToMouse(player) * (float)1.3;
         transform.position = (Vector2)player.transform.position + playerToMouse;
 
         // set rotation of weapon
         float playerToMouseAngle = Mathf.Rad2Deg * Mathf.Atan(playerToMouse.y / playerToMouse.x);
+        Debug.Log(playerToMouseAngle);
+
+        // angles should always be positive
+        if (playerToMouse.x < 0)
+        {
+            playerToMouseAngle = 180 + playerToMouseAngle;
+        }
+        
         transform.rotation = Quaternion.Euler(0, 0, playerToMouseAngle);
 
         // shoot weapon on left click
         if (Input.GetMouseButton(0))
         {
-            if (timeStamp <= Time.time)
+            if (Ready())
             {
                 Shoot();
                 timeStamp = Time.time + cooldown;

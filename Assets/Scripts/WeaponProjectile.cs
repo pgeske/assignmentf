@@ -19,6 +19,15 @@ public class WeaponProjectile : MonoBehaviour
         toMouseVector.Normalize();
 
         rb.velocity = toMouseVector * speed;
+
+        // set angle of projectile
+        float playerToMouseAngle = Mathf.Rad2Deg * Mathf.Atan(toMouseVector.y / toMouseVector.x);
+        if (toMouseVector.x < 0)
+        {
+            playerToMouseAngle = 180 + playerToMouseAngle;
+        }
+        transform.rotation = Quaternion.Euler(0, 0, playerToMouseAngle);
+
     }
 
     // Update is called once per frame
